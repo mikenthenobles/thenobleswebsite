@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+
+
+    <!-- Character encoding for the document -->
+    <meta charset="UTF-8">
+    <!-- Viewport settings for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage that appears in the browser tab -->
+    <title>Mike Neglia & The Nobles - Official Website</title>
+    <style>
+        /* Define a custom font 'HMCamino' */
+        @font-face {
+            font-family: 'HMCamino';
+            src: url('fonts/HMCamino.ttf') format('truetype');
+        }
+
+        /* Basic styles for the body element */
+        body {
+            font-family: 'HMCamino', Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            background: no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: rgb(50, 50, 50);
+            color: white;
+            transition: 200ms ease-out;
+        }
+
+        /* Styles for the header element */
+        header {
+            background-color: #00000000;
+            /* Transparent background */
+            color: rgb(0, 0, 0);
+            display: flex;
+            padding: 1em;
+        }
+
+        /* Styles for the main heading (h1) */
+        h1 {
+            text-align: right;
+            margin: auto;
+            margin-right: 1em;
+            margin-top: 0.33em;
+            font-size: 3em;
+        }
+
+        /* Styles for secondary headings (h2) */
+        h2 {
+            font-size: 3em;
+
+        }
+
+
+        p {
+            font-size: 1.4em;
+            line-height: 1.2em;
+
+        }
+
+        .blur {
+            padding: 1em;
+            margin: 1em;
+            border-radius: 2em;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+
+        /* Styles for the navigation bar */
+        nav {
+            background-color: #00000000;
+            /* Transparent background */
+            padding: 0.5em;
+            text-align: left;
+        }
+
+        /* Styles for the navigation list */
+        nav ul {
+            list-style-type: none;
+            /* Remove default list styling */
+            font-size: 2em;
+            padding: 0;
+            margin: 0;
+            display: inline;
+            flex-wrap: wrap;
+        }
+
+        /* Styles for each list item in the navigation */
+        nav ul li {
+            margin: 0.5em;
+        }
+
+        /* Styles for links in the navigation */
+        nav ul li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 0.5em 1em;
+        }
+
+        /* Hover effect for navigation links */
+        nav ul li a:hover {
+            background-color: #00000000;
+            /* Transparent background */
+        }
+
+        /* Styles for the main content area */
+        main {
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Styles for the footer */
+        footer {
+            background-color: #00000000;
+            /* Transparent background */
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Gallery Styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1em;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            /* Zoom effect on hover */
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            margin: auto;
+            display: block;
+        }
+
+        /* Styles for the close button in the modal */
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Styles for navigation arrows in the modal */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            z-index: 2;
+        }
+
+        .arrow-left {
+            left: 20px;
+            border-radius: 0;
+        }
+
+        .arrow-right {
+            right: 20px;
+            border-radius: 0;
+        }
+
+        /* Responsive design for screens smaller than 600px */
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0.5em 0;
+            }
+
+            nav ul li a {
+                padding-left: 0;
+            }
+
+            h1 {
+                margin-right: 0;
+            }
+        }
+
+        /* Spacer for layout purposes */
+        .space {
+            height: 230px;
+
+        }
+
+        /* Styles for the background image */
+        .background-image {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            /* Place it behind all other content */
+        }
+
+        /* Ensure header, main content, and footer are above the background */
+        header,
+        main,
+        footer {
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+
+        }
+
+        .social-buttons a {
+            text-decoration: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .bigbutton {
+            font-size: 2em;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            background-color: #000000;
+            border-radius: 0.5em;
+            padding: 0.6em 1em 0.5em 1em;
+            border-width: 0px;
+            border-color: rgb(0, 0, 0);
+            border-style: solid;
+        }
+
+        iframe.youtubevideo {
+            aspect-ratio: 16/9;
+            width: 100%;
+        }
+
+        a.email {
+            font-size: 1.4em;
+            text-decoration: none;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background image div -->
+    <div class="background-image" id="backgroundImage"></div>
+
+    <!-- Header section containing navigation and main title -->
+    <header>
+        <nav>
+            <ul>
+                <!-- Navigation links with data attributes for background images -->
+                <li><a href="#home" data-bg="img/bg-home.jpg">About</a></li>
+                <li><a href="#media" data-bg="img/bg-media.jpg">Media</a></li>
+                <li><a href="#shows" data-bg="img/bg-shows.jpg">Shows</a></li>
+                <li><a href="#merch" tdata-bg="img/bg-merch.jpg">Merch</a></li>
+                <li><a href="#contact" data-bg="img/bg-contact.jpg">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+
+        <h1>Mike Neglia & The Nobles</h1>
+    </header>
+
+    <!-- Main content area -->
+    <main id="content">
+        <!-- Content will be dynamically loaded here -->
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        &copy; 2024 Mike Neglia & The Nobles. All rights reserved.
+    </footer>
+
+    <!-- Modal for displaying images -->
+    <div id="myModal" class="modal">
+        <!-- Close button for the modal -->
+        <span class="close">&times;</span>
+        <!-- Navigation arrows for the modal -->
+        <span class="arrow arrow-left" onclick="prevImage()">&#10094;</span>
+        <span class="arrow arrow-right" onclick="nextImage()">&#10095;</span>
+        <!-- Modal content image -->
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        let images = [];
+
+        // Load content dynamically based on page and background image
+        function loadContent(page, bg) {
+            const content = document.getElementById('content');
+            const backgroundImage = document.getElementById('backgroundImage');
+            switch (page) {
+                case 'home':
+                    content.innerHTML = `
+                    <div class="space"></div>
+
+
+
+
+                    
+    <div class="social-buttons">
+        <a href="https://www.instagram.com/mikeneglia_thenobles/" class="instagram" title="Instagram" target="_blank">
+            <img src="icons/instagram.png" alt="Instagram" width="50" height="50">
+        </a>
+        <a href="https://www.youtube.com/@MikeNegliatheNobles" class="youtube" title="YouTube" target="_blank">
+            <img src="icons/youtube.png" alt="YouTube" width="50" height="50">
+        </a>
+
+<!-- 
+        <a href="" class="tiktok" title="TikTok" target="_blank">
+            <img src="icons/tiktok.png" alt="TikTok" width="30" height="30">
+        </a>
+        <a href="" class="facebook" title="Facebook" target="_blank">
+            <img src="icons/facebook.png" alt="Facebook" width="30" height="30">
+        </a>
+        <a href="" class="spotify" title="Spotify" target="_blank">
+            <img src="icons/spotify.png" alt="Spotify" width="30" height="30">
+        </a>
+       <a href="" class="apple-music" title="Apple Music" target="_blank">
+            <img src="icons/applemusic.png" alt="Apple Music" width="30" height="30">
+        </a>
+       <a href="" class="bandcamp" title="Bandcamp" target="_blank">
+            <img src="icons/bandcamp.png" alt="Bandcamp" width="30" height="30">
+        </a>
+-->
+    </div>
+    <br><br><br><br>
+
+
+        <a href="https://www.instagram.com/mikeneglia_thenobles">
+        <img src="img/logo.jpg" alt="Mike Neglia & The Nobles" width="300" height="300">
+        </a>
+
+
+    <br><br><br><br>
+
+
+            <h2>About Us</h2>
+    <div class="blur">
+
+
+            <p>
+                Mike Neglia & the Nobles produce lyric forward rock and roll. Combining classic americana vibes, vintage rock grit, grooving jazz waltzes and world beats, they improvise without being a jam band, they sing deeply personal lyrics without being emo. Thoughtful, heartfelt, and slightly unhinged, Mike Neglia & the Nobles are a throwback to what made classic rock, classic. You can dance or cry with their music, but they may also be the soundtrack to your next speeding ticket.
+            </p>
+
+            <a class="email" href="mailto:mikeneglia.thenobles@gmail.com">Contact us for booking. 🎸</a>
+
+            <br><br><br><br>
+
+
+        </div>
+                    `;
+                    break;
+                case 'media':
+                    content.innerHTML = `
+
+                    <h2>Photos</h2>
+                        <div class="blur">
+
+
+                        <div class="gallery">
+                            <!-- Images in the gallery with onclick events to open the modal -->
+                            <img src="img/photo1.jpg" alt="Photo 1" onclick="openModal(this, 0)">
+                            <img src="img/photo2.jpg" alt="Photo 2" onclick="openModal(this, 1)">
+                            <img src="img/photo3.jpg" alt="Photo 3" onclick="openModal(this, 2)">
+                            <img src="img/photo4.jpg" alt="Photo 4" onclick="openModal(this, 3)">
+                            <img src="img/photo5.jpg" alt="Photo 5" onclick="openModal(this, 4)">
+                            <img src="img/photo6.jpg" alt="Photo 6" onclick="openModal(this, 5)">
+                            <img src="img/photo7.jpg" alt="Photo 7" onclick="openModal(this, 6)">
+                            <img src="img/photo8.jpg" alt="Photo 8" onclick="openModal(this, 7)">
+                            <img src="img/photo9.jpg" alt="Photo 9" onclick="openModal(this, 8)">
+                            <img src="img/photo10.jpg" alt="Photo 10" onclick="openModal(this, 9)">
+                            <img src="img/photo11.jpg" alt="Photo 11" onclick="openModal(this, 10)">
+                            <img src="img/photo12.jpg" alt="Photo 12" onclick="openModal(this, 11)">
+                            <img src="img/photo13.jpg" alt="Photo 13" onclick="openModal(this, 12)">
+                            <img src="img/photo14.jpg" alt="Photo 14" onclick="openModal(this, 13)">
+
+
+
+
+
+                            <!-- Add more photos as needed -->
+                        </div>
+        </div>
+                    <br><br><br><br>
+
+                    <h2>Videos</h2>
+    <div class="blur">
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_ndqPISDIUM?si=ZGHj6q5TXgCpXbJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+     
+        </div>
+
+
+      <br><br><br><br>
+
+        
+         <h2>In The Press</h2>
+                        
+            </div><a class=bigbutton href="https://whatzup.com/mike-neglia-the-nobles-mix-rock-jazz-latin/" target="_blank">🗞️ Whatzup Article</a></div>
+
+
+
+        <div class="space"></div>
+                    `;
+                    images = Array.from(document.querySelectorAll('.gallery img')).map(img => img.src);
+                    break;
+                case 'shows':
+                    content.innerHTML = `<h2>Upcoming Shows</h2>
+                    
+    <div class="blur">
+
+        <!--  
+        <div class="show">
+            <h3>Date/Place</h3>
+            <p>w/ Bands</p>
+            <p>Address</p>
+        </div>
+        -->
+
+
+
+                    
+                    <div class="space"></div>
+                    `;
+                    break;
+                case 'merch':
+                    content.innerHTML = `
+                        <h2>Merch</h2>
+                        <p>Catch one of our upcoming shows or send us a message for more information!</p>
+                        
+                        </div><a class=bigbutton href="https://www.instagram.com/mikeneglia_thenobles/" target="_blank">Instagram ✨</a></div>
+
+                    <div class="space"></div><div class="space"></div>
+                    `;
+                    break;
+                case 'contact':
+                    content.innerHTML = `
+                    <h2>Contact Us</h2>
+
+
+                    <p>Get in touch with us at </p>
+                    <br>
+                    <a class=bigbutton class="email" href="mailto:mikeneglia.thenobles@gmail.com">mikeneglia.thenobles@gmail.com</a>
+                    
+
+<br><br><br><br>
+
+               
+     
+           <div class="space"></div>
+           <div class="space"></div>
+                    `;
+                    break;
+                default:
+                    content.innerHTML = '<h2>Page Not Found</h2>';
+            }
+            backgroundImage.style.backgroundImage = `url('${bg}')`;
+        }
+
+        // Update background images based on screen size
+        function updateBackgrounds() {
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => {
+                const page = link.getAttribute('href').substr(1);
+                const originalBg = `img/bg-${page}.jpg`;
+                const smallBg = `img/bg-${page}-small.jpg`;
+                if (window.innerWidth < 600) {
+                    link.setAttribute('data-bg', smallBg);
+                } else {
+                    link.setAttribute('data-bg', originalBg);
+                }
+            });
+        }
+
+        // Open the modal with the selected image
+        function openModal(img, index) {
+            const modal = document.getElementById('myModal');
+            const modalImg = document.getElementById('img01');
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            currentIndex = index;
+        }
+
+        // Close the modal
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        // Show previous image in the modal
+        function prevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            document.getElementById('img01').src = images[currentIndex];
+        }
+
+        // Show next image in the modal
+        function nextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            document.getElementById('img01').src = images[currentIndex];
+        }
+
+        // Add event listeners for resizing and loading the page
+        window.addEventListener('resize', updateBackgrounds);
+        window.addEventListener('load', updateBackgrounds);
+
+        // Event listeners for navigation links to load content dynamically
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = e.target.getAttribute('href').substr(1);
+                const bg = e.target.getAttribute('data-bg');
+                loadContent(page, bg);
+            });
+        });
+
+        // Load home page content by default
+        if (window.innerWidth < 600) {
+            loadContent('home', 'img/bg-home-small.jpg');
+        } else {
+            loadContent('home', 'img/bg-home.jpg');
+        }
+
+        // Close the modal when clicking on the close button
+        document.querySelector('.close').addEventListener('click', closeModal);
+    </script>
+</body>
+
+</html>
