@@ -11,7 +11,7 @@
     <!-- Viewport settings for responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title of the webpage that appears in the browser tab -->
-    <title>Mike Neglia & The Nobles - Official Website</title>
+    <title>Mike Neglia & the Nobles - Official Website</title>
     <style>
         /* Define a custom font 'HMCamino' */
         @font-face {
@@ -55,7 +55,11 @@
             font-size: 3em;
 
         }
+        h4 {
+            font-size: 1.6em;
+            font-style: italic;
 
+        }
 
         p {
             font-size: 1.4em;
@@ -150,6 +154,17 @@
             transform: scale(1.05);
             /* Zoom effect on hover */
         }
+
+
+.profile {
+    width: 100%; 
+    max-width:400px;
+    height: auto; 
+    display: flex-box;
+    justify-content: center; 
+    align-items: center;
+}
+
 
         /* Modal Styles */
         .modal {
@@ -318,7 +333,8 @@
         <nav>
             <ul>
                 <!-- Navigation links with data attributes for background images -->
-                <li><a href="#home" data-bg="img/bg-home.jpg">About</a></li>
+                <li><a href="#home" data-bg="img/bg-home.jpg">Home</a></li>
+                <li><a href="#bio" data-bg="img/bg-media.jpg">Bio</a></li>
                 <li><a href="#media" data-bg="img/bg-media.jpg">Media</a></li>
                 <li><a href="#shows" data-bg="img/bg-shows.jpg">Shows</a></li>
                 <li><a href="#merch" tdata-bg="img/bg-merch.jpg">Merch</a></li>
@@ -329,7 +345,7 @@
         </nav>
 
 
-        <h1>Mike Neglia & The Nobles</h1>
+        <h1>Mike Neglia & the Nobles</h1>
     </header>
 
     <!-- Main content area -->
@@ -339,7 +355,7 @@
 
     <!-- Footer section -->
     <footer>
-        &copy; 2025 Mike Neglia & The Nobles. All rights reserved.
+        &copy; 2025 Mike Neglia & the Nobles. All rights reserved.
     </footer>
 
     <!-- Modal for displaying images -->
@@ -418,8 +434,7 @@
     <div class="blur">
 
 
-            <p>
-                Mike Neglia & the Nobles produce lyric forward rock and roll. Combining classic americana vibes, vintage rock grit, grooving jazz waltzes and world beats, they improvise without being a jam band, they sing deeply personal lyrics without being emo. Thoughtful, heartfelt, and slightly unhinged, Mike Neglia & the Nobles are a throwback to what made classic rock, classic. You can dance or cry with their music, but they may also be the soundtrack to your next speeding ticket.
+            <p>Mike Neglia & the Nobles produce lyric forward rock and roll. Their sound combines rootsy americana vibes, vintage rock grit, grooving jazz waltzes and exotic world beats. Thoughtful, heartfelt, and slightly unhinged, Mike Neglia & the Nobles are a throwback to what made classic rock, classic. You can dance or cry with their music, but they may also be the soundtrack to your next speeding ticket.
             </p>
 
             <a class="email" href="mailto:mikeneglia.thenobles@gmail.com">Contact us for booking. 🎸</a>
@@ -435,6 +450,77 @@
 
         </div>
                     `;
+
+                    break;
+                case 'bio':
+                    content.innerHTML = `
+                    <h2>Bio</h2>
+
+<div class="blur">
+    <img class="profile" src="img/mike.jpg" alt="Mike">
+<h2>Mike Neglia</h2>
+    <h4>Guitar & Vocals</h4>
+    <p>From loading boxes and cleaning toilets to a master’s degree and teaching music at a university, Mike uses all of his life experiences as inspiration for his blue collar, yet textured songwriting.
+        </p>
+    <p>A troubled home pushed him into music at a fragile age as a way of coping. Obsessed with music and getting his first orchestral instrument in 4th grade, at the behest of his Italian grandparents raising him, Mike finally had his magician’s wand to create his own vision of reality. The violin, however, was a ruse to get an electric guitar, which his mother acquired from a local shop. He immediately began writing original material and formed a band.
+        </p>
+    <p>At the young age of 12 years old, they performed original music at local music festivals and all ages clubs. Many tragedies, twists, and turns lead Mike to pursuing a college degree in his mid 20s, working as a cook and gigging in multiple bands to support himself. He met his first real mentor in the process who encouraged him to study music. A move from sleepy central PA to the Northeast of the state put him in direct contact with professionals in the jazz world. After graduating, Mike was employed at a certain guitar manufacturer in Nazareth, PA before moving back home to help take care of his ailing grandparents, and soon after started a graduate degree in Washington DC.
+        </p>
+    <p>The pandemic and the loss of his beloved grandparents forced a move to the Midwest where he not only found himself, but also an incendiary band to help bring his musical vision to life.
+        </p>
+    <p>Eternally grateful to still be here and honored to share in the story of life with his fellow beings, Mike sings of trauma and heartache, enlightenment and inner peace.
+        </p>
+    <p>Educated in jazz improvisation, born with a rock n’ roll heart, Mike is a passionate voice for truth, justice, and for the underdog getting their day.
+        </p>
+</div>
+        <br><br><br><br>
+
+<div class="blur">
+
+     <img class="profile" src="img/jack.jpg" alt="Jack">
+        <h2>Jack Wellington</h2>
+    <h4>Bass</h4>
+    <p>Originally from Port Huron, MI, Jack brings 20 years of high energy performance and a passion for the low end. Whether it’s on electric or upright, funky and melodic bass lines inspired by Detroit Soul help drive every Nobles tune. Jack joined the band after Mike showed him a few originals on a busted picnic bench after a local jazz jam. The two started collaborating right away on fleshing out the band’s vintage meets modern rock sound.
+  </p>
+
+</div>
+
+<br><br><br><br>
+
+               
+<div class="blur">
+        <img class="profile" src="img/alex.jpg" alt="Alex">
+    <h2>Alex Gleason</h2>
+    <h4>Drums</h4>
+    <p>Born in Missouri but moved constantly as a military brat, Alex learned to read music on tuba and percussion early in life but put that all aside to play rock n’ roll when he got his first drum set after years of dreaming.
+Alex played in dozens of bands between Nashville and Fort Wayne while developing his genre defying personal style. A rock drummer with a jazz attitude and immersed in world beat, Alex met Mike in a local music store where the two bonded over their love of the avant-garde and classic rock. They jammed in a free jazz format for a few years, not playing an actual song together until the first Nobles rehearsal. Alex spends his time away from music on his bicycle, hanging with giant dogs, making pizzas, and foraging for wild berries.</p>
+
+</div>
+
+<br><br><br><br>
+
+
+<div class="blur">
+        <img class="profile" src="img/ben.jpg" alt="Ben">
+        <h2>Ben Francis</h2>
+    <h4>Keys</h4>
+    <p>A master in his prime, Ben is one of the Midwest’s most sought after keyboardists. In high demand, he stays constantly booked for studio sessions and road work as a side man and as a principle composer with the neo-soul heavyweights SUN.DYLE. Ben recently joined the Nobles and is already imparting his original style of advanced jazz harmony, synth-pop nu wave melodic sense, and rock n’ roll honky tonk madness to round out the Nobles unique sound.
+</p>
+
+</div>
+
+<br><br><br><br>
+
+
+
+
+     
+           <div class="space"></div>
+           <div class="space"></div>
+                    `;
+
+
+
                     break;
                 case 'media':
                     content.innerHTML = `
